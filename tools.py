@@ -87,12 +87,33 @@ def perm_exec(path_file: str) -> bool:
 
 
 def convert_dsl_to_aml(iasl_path: str, target: str = "") -> str:
+    """Convert dsl file to aml
+
+    Args:
+        iasl_path (str): iasl excec path
+        target (str, optional): Path of dsl file need to be converted. Defaults to "".
+
+    Returns:
+        str: output aml path file
+    """
     from os import system as sh
     sh("{} -oa {}".format(iasl_path, target))
     return str(target).replace(".dsl", ".aml")
 
 
 def dsl_to_patch_list(dsl_path: str) -> []:
+    """Get array of patch from dsl file, your dsl file need to declear patch inside of it
+    \n Sample of an path in dsl file
+    \n// Patch: Rename _WAK to ZWAK
+    \n// Find: FDlfV0FLAQ==
+    \n// Replace: FDlaV0FLAQ==
+
+    Args:
+        dsl_path (str): dsl path need to be extract
+
+    Returns:
+        (Comment:str, Find: str, Replace: str)[]:  Array of patch
+    """
     patches = []
     with open(dsl_path, 'r') as f:
         while True:

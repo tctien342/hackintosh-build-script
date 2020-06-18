@@ -27,4 +27,3 @@ conf = {
         deviceproperties='DeviceProperties>Add'
     )
 }
- 
