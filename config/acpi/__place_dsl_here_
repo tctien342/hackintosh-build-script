@@ -1,0 +1,9 @@
+// Note....
+// Patch: Name of patch to add
+// Find: VVNOCOS (Data value)
+// Replace: VVNOCOS
+
+DefinitionBlock ("", "SSDT", 2, "hack", "DSL", 0x00000000)
+{
+    // DSL EXAMPLE
+}
